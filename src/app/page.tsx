@@ -20,7 +20,7 @@ export default async function Home() {
   return <MarketingFrame>
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_75%_15%,rgba(26,143,82,.22),transparent_45%),linear-gradient(120deg,#06170e,#071c12_55%,#04100a)]" />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-1 lg:px-8 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-24">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-[#286b46] bg-[#0c2b1b] px-4 py-2 text-xs font-semibold text-[#a8f0c5]"><span className="h-2 w-2 rounded-full bg-[#42e38e]" /> Kundalik hisob-kitoblar uchun raqamli yordamchi</div>
           <h1 className="mt-7 max-w-2xl text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[62px]">Qarzlarni yozib boring. <span className="text-[#4be092]">Ishingizni ishonch bilan</span> boshqaring.</h1>
@@ -31,6 +31,16 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#9ab3a3]"><span>✓ Telefon va kompyuterda</span><span>✓ Bitta hisob, umumiy maʼlumotlar</span><span>✓ Oʻzbek tilida</span></div>
         </div>
+        <aside className="w-full rounded-3xl border border-[#285d3d] bg-[#0c2115] p-6 shadow-2xl shadow-black/20 sm:p-8" aria-label="QarzDaftar qanday yordam beradi">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#63e6a0]">QarzDaftar bilan</p>
+          <h2 className="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">Hisob-kitobning hammasi bir joyda</h2>
+          <p className="mt-3 text-sm leading-7 text-[#a6bcae]">Mijozni tanlang, qarz yoki toʻlovni yozing va hisob tarixini tekshiring.</p>
+          <div className="mt-7 space-y-3">
+            {[["01","Mijozlar","Ism va aloqa maʼlumotlari"],["02","Qarzlar","Berilgan summa va qoldiq"],["03","Toʻlovlar","Qaytarilgan pullar tarixi"]].map(([n,t,d])=><div key={n} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#10291b] p-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#1a4a2d] text-sm font-black text-[#71e9a7]">{n}</span><div><p className="font-bold text-white">{t}</p><p className="mt-1 text-xs text-[#91aa9a]">{d}</p></div><span className="ml-auto text-[#62df98]">✓</span></div>)}
+          </div>
+          <div className="mt-6 rounded-2xl bg-[#143b24] p-4"><p className="text-sm font-bold text-[#c8f7d9]">Oddiy tartib. Aniq hisob.</p><p className="mt-1 text-xs leading-6 text-[#9ebba8]">Kichik doʻkonlar va kundalik savdo uchun qulay raqamli daftar.</p></div>
+          <Link href="/how-it-works" className="mt-6 inline-flex font-bold text-[#62e69d] hover:underline">Qanday ishlashini koʻrish →</Link>
+        </aside>
       </div>
     </section>
 
