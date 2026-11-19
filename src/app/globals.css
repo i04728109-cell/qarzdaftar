@@ -70,3 +70,75 @@ body[data-qd-theme="ocean"] header [role="group"] button[aria-pressed="false"] {
 body[data-qd-theme="light"] header [role="group"] button[aria-pressed="true"] { background:#16834d!important; color:#fff!important; }
 body[data-qd-theme="ocean"] header [role="group"] button[aria-pressed="true"] { background:#62c3fa!important; color:#061727!important; }
 @media(max-width:420px){header [role="group"][aria-label="Sayt uslubini tanlash"] button{padding-left:7px;padding-right:7px;font-size:10px}}
+
+
+/* Final theme normalization: override legacy hard-coded page colors consistently. */
+body[data-qd-theme="light"] main [class*="bg-[#"] {
+  background-color:#ffffff !important;
+  border-color:#dce7df !important;
+  color:#17271d;
+}
+body[data-qd-theme="light"] main [class*="bg-gradient-to-"] {
+  background-image:linear-gradient(135deg,#f0f8f2 0%,#e7f2ea 100%) !important;
+  background-color:#edf5ef !important;
+}
+body[data-qd-theme="light"] main [class*="text-white"],
+body[data-qd-theme="light"] main [class*="text-[#e"],
+body[data-qd-theme="light"] main [class*="text-[#f"],
+body[data-qd-theme="light"] main [class*="text-[#d"],
+body[data-qd-theme="light"] main [class*="text-[#c"] { color:#17271d !important; }
+body[data-qd-theme="light"] main [class*="text-[#a"],
+body[data-qd-theme="light"] main [class*="text-[#9"],
+body[data-qd-theme="light"] main [class*="text-[#8"],
+body[data-qd-theme="light"] main [class*="text-[#7"] { color:#596b60 !important; }
+body[data-qd-theme="light"] main [class*="text-[#3"],
+body[data-qd-theme="light"] main [class*="text-[#4"],
+body[data-qd-theme="light"] main [class*="text-[#5"],
+body[data-qd-theme="light"] main [class*="text-[#6"] { color:#187b49 !important; }
+body[data-qd-theme="light"] main [class*="bg-[#3"],
+body[data-qd-theme="light"] main [class*="bg-[#4"] {
+  background-color:#16834d !important; color:#ffffff !important;
+}
+body[data-qd-theme="light"] main [class*="border-[#"] { border-color:#d5e4d9 !important; }
+body[data-qd-theme="light"] main section { background-color:transparent; }
+body[data-qd-theme="light"] main section[class*="bg-[#0"],
+body[data-qd-theme="light"] main section[class*="bg-[#1"] { background:#f0f5f1 !important; }
+body[data-qd-theme="light"] main [class*="shadow-"] { box-shadow:0 10px 30px rgba(26,66,42,.07)!important; }
+
+body[data-qd-theme="ocean"] main [class*="bg-[#"] {
+  background-color:#102a43 !important;
+  border-color:#294d6c !important;
+  color:#edf6ff;
+}
+body[data-qd-theme="ocean"] main [class*="bg-gradient-to-"] {
+  background-image:linear-gradient(135deg,#163d5e 0%,#0d2238 100%) !important;
+  background-color:#12314d !important;
+}
+body[data-qd-theme="ocean"] main [class*="text-white"],
+body[data-qd-theme="ocean"] main [class*="text-[#e"],
+body[data-qd-theme="ocean"] main [class*="text-[#f"],
+body[data-qd-theme="ocean"] main [class*="text-[#d"],
+body[data-qd-theme="ocean"] main [class*="text-[#c"] { color:#edf6ff !important; }
+body[data-qd-theme="ocean"] main [class*="text-[#a"],
+body[data-qd-theme="ocean"] main [class*="text-[#9"],
+body[data-qd-theme="ocean"] main [class*="text-[#8"],
+body[data-qd-theme="ocean"] main [class*="text-[#7"] { color:#b0c7dc !important; }
+body[data-qd-theme="ocean"] main [class*="text-[#3"],
+body[data-qd-theme="ocean"] main [class*="text-[#4"],
+body[data-qd-theme="ocean"] main [class*="text-[#5"],
+body[data-qd-theme="ocean"] main [class*="text-[#6"] { color:#72c9ff !important; }
+body[data-qd-theme="ocean"] main [class*="bg-[#3"],
+body[data-qd-theme="ocean"] main [class*="bg-[#4"] {
+  background-color:#62bdf1 !important; color:#071a2b !important;
+}
+body[data-qd-theme="ocean"] main [class*="border-[#"] { border-color:#315675 !important; }
+body[data-qd-theme="ocean"] main section { background-color:transparent; }
+body[data-qd-theme="ocean"] main section[class*="bg-[#0"],
+body[data-qd-theme="ocean"] main section[class*="bg-[#1"] { background:#091c2e !important; }
+body[data-qd-theme="ocean"] main [class*="shadow-"] { box-shadow:0 12px 32px rgba(0,0,0,.22)!important; }
+
+body[data-qd-theme="light"] header, body[data-qd-theme="light"] footer { color:#17271d!important; }
+body[data-qd-theme="light"] header nav a, body[data-qd-theme="light"] footer p, body[data-qd-theme="light"] footer a { color:#405448!important; }
+body[data-qd-theme="ocean"] header, body[data-qd-theme="ocean"] footer { color:#edf6ff!important; }
+body[data-qd-theme="ocean"] header nav a, body[data-qd-theme="ocean"] footer p, body[data-qd-theme="ocean"] footer a { color:#b4cce0!important; }
+body[data-qd-theme="light"] main a[class*="border-white"], body[data-qd-theme="ocean"] main a[class*="border-white"] { border-color:var(--qd-line)!important; }
