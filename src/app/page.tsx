@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { MarketingFrame, SectionHeading } from "@/components/Marketing";
 
-const features = [
-  { icon: "👥", title: "Mijozlar bir joyda", text: "Mijozlar roʻyxati va har bir mijoz bilan hisob-kitoblar tartibli saqlanadi." },
-  { icon: "📒", title: "Qarzlar nazoratda", text: "Kim qancha qarzdor yoki qancha toʻlaganini tezda koʻring." },
-  { icon: "📊", title: "Aniq hisobotlar", text: "Savdo va toʻlovlar holatini tushunarli statistikada kuzating." },
-  { icon: "📱", title: "Telefon va kompyuterda", text: "Bir hisob orqali sayt va Android ilovadan foydalaning." },
+const benefits = [
+  ["01", "Mijozlar bazasi", "Mijozlaringiz haqidagi maʼlumotlarni bitta joyda saqlang. Kerakli odamni qidiruv orqali tez toping."],
+  ["02", "Qarzlar tarixi", "Har bir qarz, qaytarilgan summa va qolgan balansni alohida kuzating."],
+  ["03", "Toʻlovlar nazorati", "Qisman yoki toʻliq toʻlovlarni qayd eting va hisob-kitob tarixini yoʻqotmang."],
+  ["04", "Hisobotlar", "Umumiy holatni tushunish uchun qarz va toʻlovlar boʻyicha jamlanmalarni koʻring."],
 ];
 
 export default async function Home() {
@@ -16,75 +17,62 @@ export default async function Home() {
     const { data: isAdmin } = await supabase.rpc("is_admin");
     redirect(isAdmin === true ? "/admin" : "/app");
   }
-
-  return (
-    <main className="min-h-dvh overflow-hidden">
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-        <Link href="/" className="text-2xl font-black tracking-tight">Qarz<span className="text-qd-green">Daftar</span></Link>
-        <Link href="/login?next=/app" className="rounded-xl border border-qd-line px-4 py-2.5 text-sm font-semibold transition hover:border-qd-green">Kirish</Link>
-      </header>
-
-      <section className="relative mx-auto grid min-h-[590px] w-full max-w-6xl items-center gap-10 px-5 pb-16 pt-10 sm:px-8 md:grid-cols-[1.1fr_.9fr] md:pb-24 md:pt-16">
-        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+  return <MarketingFrame>
+    <section className="relative isolate overflow-hidden">
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_75%_15%,rgba(26,143,82,.22),transparent_45%),linear-gradient(120deg,#06170e,#071c12_55%,#04100a)]" />
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:py-24">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#286b46] bg-[#0c2b1b] px-4 py-2 text-xs font-semibold text-[#a8f0c5]"><span className="h-2 w-2 rounded-full bg-[#42e38e]" /> Kundalik hisob-kitoblar uchun raqamli yordamchi</div>
+          <h1 className="mt-7 max-w-2xl text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[62px]">Qarzlarni yozib boring. <span className="text-[#4be092]">Ishingizni ishonch bilan</span> boshqaring.</h1>
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#a6bcae] sm:text-lg">QarzDaftar — doʻkon va kichik bizneslar uchun mijozlar, qarzlar va toʻlovlarni tartibli yuritishga yordam beradigan xizmat. Kerakli maʼlumotlar bir joyda, hisob-kitob esa aniq.</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link href="/login?next=/app" className="inline-flex items-center justify-center rounded-xl bg-[#39dc8b] px-6 py-4 font-extrabold text-[#052014] shadow-lg shadow-emerald-950/40 transition hover:-translate-y-0.5 hover:bg-[#68eaa8]">Bepul boshlash <span className="ml-2">→</span></Link>
+            <Link href="/features" className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-4 font-bold text-white transition hover:bg-white/10">Imkoniyatlarni koʻrish</Link>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#9ab3a3]"><span>✓ Telefon va kompyuterda</span><span>✓ Bitta hisob, umumiy maʼlumotlar</span><span>✓ Oʻzbek tilida</span></div>
+        </div>
         <div className="relative">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-qd-line bg-qd-card px-3 py-1.5 text-xs font-semibold text-emerald-200">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" /> Hisob-kitoblar uchun sodda yechim
-          </div>
-          <h1 className="max-w-2xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-            Qarzlaringizni <span className="text-emerald-400">unutmang.</span><br />Ishingizni oson boshqaring.
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-qd-mute sm:text-lg">
-            QarzDaftar — mijozlar, qarzlar va toʻlovlarni bitta joyda yuritish uchun qulay xizmat. Telefoningizdan ham, kompyuteringizdan ham foydalaning.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="https://github.com/i04728109-cell/qarzdaftar/releases/latest/download/qarzdaftar.apk" className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-400 px-6 py-3.5 font-bold text-[#04100c] shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-300">
-              <span>⬇</span> Android ilovani yuklab olish
-            </a>
-            <Link href="/login?next=/app" className="inline-flex items-center justify-center rounded-xl border border-qd-line bg-qd-card px-6 py-3.5 font-bold transition hover:border-emerald-400">
-              Kirish / Roʻyxatdan oʻtish
-            </Link>
-          </div>
-          <p className="mt-3 text-xs text-qd-mute">Android APK · Internet orqali sinxron ishlaydi</p>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-md">
-          <div className="absolute inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
-          <div className="relative rounded-[2rem] border border-emerald-900 bg-gradient-to-br from-[#123d26] to-[#08170f] p-5 shadow-2xl shadow-black/40 sm:p-7">
-            <div className="flex items-center justify-between">
-              <div><p className="text-xs text-emerald-200/70">QARZDAFTAR</p><h2 className="mt-1 text-xl font-extrabold">Hisobingiz nazoratda</h2></div>
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-300/15 text-2xl">📗</div>
+          <div className="absolute -inset-8 rounded-full bg-[#1bb56b]/15 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#10291b] p-3 shadow-2xl shadow-black/40">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85" alt="Doʻkonda mijoz bilan hisob-kitob qilayotgan sotuvchi" className="h-[270px] w-full rounded-[22px] object-cover sm:h-[350px]" />
+            <div className="absolute bottom-7 left-7 right-7 rounded-2xl border border-white/15 bg-[#06170ee8] p-5 backdrop-blur-xl">
+              <div className="flex items-center justify-between"><div><p className="text-xs text-[#8fb7a0]">QarzDaftar bilan</p><p className="mt-1 text-lg font-extrabold text-white">Hisob-kitoblar tartibda</p></div><img src="/brand/qarzdaftar-mark.svg" alt="QarzDaftar" className="h-12 w-12" /></div>
+              <div className="mt-4 grid grid-cols-3 gap-2 text-center"><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Mijozlar</p><p className="mt-1 text-sm font-bold text-white">Baza</p></div><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Qarzlar</p><p className="mt-1 text-sm font-bold text-white">Nazorat</p></div><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Toʻlovlar</p><p className="mt-1 text-sm font-bold text-white">Tarix</p></div></div>
             </div>
-            <div className="mt-7 rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-emerald-100/70">Jami qarzlar</p>
-              <p className="mt-2 text-3xl font-black">12 450 000 <span className="text-sm font-semibold text-emerald-100/70">soʻm</span></p>
-              <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full w-2/3 rounded-full bg-emerald-400" /></div>
-              <div className="mt-2 flex justify-between text-xs text-emerald-100/60"><span>Toʻlovlar nazorati</span><span>Oson va aniq</span></div>
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4"><span className="text-xl">👥</span><p className="mt-3 text-2xl font-bold">Mijozlar</p><p className="mt-1 text-xs text-emerald-100/60">Barcha kontaktlar</p></div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4"><span className="text-xl">💳</span><p className="mt-3 text-2xl font-bold">Toʻlovlar</p><p className="mt-1 text-xs text-emerald-100/60">Har bir operatsiya</p></div>
-            </div>
-            <p className="mt-5 text-center text-xs text-emerald-100/50">Qarz unutilmaydi. Munosabat buzilmaydi.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="features" className="border-y border-qd-line bg-[#07170f]">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-          <div className="max-w-xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-emerald-300">Imkoniyatlar</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Hisob-kitoblar endi ancha oson</h2><p className="mt-3 leading-7 text-qd-mute">Kundalik ishlaringizni tartibga solish uchun kerakli vositalar bir joyda.</p></div>
-          <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((item) => <article key={item.title} className="rounded-2xl border border-qd-line bg-qd-card p-5"><div className="text-3xl">{item.icon}</div><h3 className="mt-4 font-bold">{item.title}</h3><p className="mt-2 text-sm leading-6 text-qd-mute">{item.text}</p></article>)}
-          </div>
-        </div>
-      </section>
+    <section className="border-y border-white/10 bg-[#081a10]">
+      <div className="mx-auto grid max-w-7xl gap-7 px-5 py-9 sm:grid-cols-3 lg:px-8">
+        {[["Tartib", "Mijozlar va hisob-kitoblar bir joyda"],["Aniqlik", "Qarz va toʻlovlar tarixi saqlanadi"],["Qulaylik", "Telefon yoki kompyuterdan foydalaning"]].map(([a,b])=><div key={a} className="border-l-2 border-[#39d887] pl-4"><p className="text-lg font-extrabold text-white">{a}</p><p className="mt-1 text-sm text-[#91aa9a]">{b}</p></div>)}
+      </div>
+    </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-8">
-        <h2 className="text-3xl font-extrabold tracking-tight">QarzDaftar bilan boshlang</h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-qd-mute">Hisobingizga kiring yoki yangi hisob yarating. Keyin Android ilovasida ham shu hisobdan foydalanishingiz mumkin.</p>
-        <Link href="/login?next=/app" className="mt-7 inline-flex rounded-xl bg-emerald-400 px-7 py-3.5 font-bold text-[#04100c] transition hover:bg-emerald-300">Boshlash</Link>
-      </section>
+    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
+      <SectionHeading eyebrow="Nimalar mumkin?" title="Kundalik ish uchun kerakli vositalar" text="Daftardagi yozuvlarni izlash yoki turli joylarda saqlangan maʼlumotlarni yigʻish oʻrniga, jarayonlarni yagona tizimda yuriting." />
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {benefits.map(([n,t,d])=><article key={n} className="rounded-2xl border border-white/10 bg-gradient-to-b from-[#10281a] to-[#09170f] p-6 transition hover:-translate-y-1 hover:border-[#2d8654]"><p className="text-sm font-black tracking-widest text-[#43df91]">{n}</p><h3 className="mt-5 text-lg font-extrabold text-white">{t}</h3><p className="mt-3 text-sm leading-7 text-[#98b0a0]">{d}</p></article>)}
+      </div>
+      <div className="mt-8 text-center"><Link href="/features" className="text-sm font-bold text-[#55e49b] hover:underline">Barcha imkoniyatlarni koʻrish →</Link></div>
+    </section>
 
-      <footer className="border-t border-qd-line px-5 py-6 text-center text-xs text-qd-mute">© {new Date().getFullYear()} QarzDaftar. Barcha huquqlar himoyalangan.</footer>
-    </main>
-  );
+    <section className="bg-[#0a1d12] py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div className="overflow-hidden rounded-3xl border border-white/10"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1100&q=85" alt="Kichik biznes egasi ish jarayonida" className="h-[340px] w-full object-cover sm:h-[430px]" /></div>
+        <div><SectionHeading eyebrow="Har kuni qulay" title="Daftarni qidirishga vaqt ketkazmang" text="Mijozning ismini toping, qarz qoldigʻini tekshiring va toʻlovni qayd qiling. Kerakli tarix bitta mijoz kartasida jamlanadi."/><Link href="/how-it-works" className="mt-7 inline-flex rounded-xl border border-[#327c51] px-5 py-3 font-bold text-[#baf5d0] hover:bg-[#123321]">Qanday ishlashini koʻrish →</Link></div>
+      </div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div className="grid items-center gap-10 rounded-[30px] border border-[#24623e] bg-gradient-to-br from-[#123d25] to-[#07180e] p-7 sm:p-10 lg:grid-cols-[1fr_.8fr]">
+        <div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#68e9a3]">Istalgan joyda</p><h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">QarzDaftar telefoningizda ham</h2><p className="mt-4 max-w-xl text-sm leading-7 text-[#b0c8b8]">Android ilovasini yuklab oling va veb-saytdagi hisobingiz bilan kiring. Maʼlumotlar internet orqali hisobingiz bilan sinxron ishlaydi.</p><Link href="/download" className="mt-7 inline-flex rounded-xl bg-[#3cde8e] px-6 py-3.5 font-extrabold text-[#062014]">Android ilova haqida →</Link></div>
+        <img src="https://images.unsplash.com/photo-151手机?auto=format&fit=crop&w=900&q=85" alt="Smartfon" className="hidden" />
+        <div className="mx-auto flex w-full max-w-xs items-center justify-center rounded-[32px] border-[7px] border-[#294c37] bg-[#06130b] p-3 shadow-2xl"><div className="w-full rounded-[22px] bg-[#102a1a] p-5"><img src="/brand/qarzdaftar-mark.svg" alt="QarzDaftar belgisi" className="mx-auto h-16 w-16"/><p className="mt-4 text-center text-lg font-black text-white">QarzDaftar</p><p className="mt-1 text-center text-xs text-[#94b29f]">Hisobingiz doimo yoningizda</p><div className="mt-6 space-y-2"><div className="h-10 rounded-lg bg-white/10"/><div className="h-10 rounded-lg bg-white/10"/><div className="h-10 rounded-lg bg-[#1c7545]"/></div></div></div>
+      </div>
+    </section>
+
+    <section className="px-5 pb-20"><div className="mx-auto max-w-5xl rounded-3xl border border-white/10 bg-[#10271a] px-6 py-12 text-center sm:px-12"><h2 className="text-3xl font-black text-white">Hisob-kitoblaringizni tartibga solishga tayyormisiz?</h2><p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#a2b9aa]">QarzDaftar hisobini yarating va mijozlaringiz bilan ishlashni qulayroq qiling.</p><Link href="/login?next=/app" className="mt-7 inline-flex rounded-xl bg-[#3cde8e] px-7 py-3.5 font-extrabold text-[#062014]">Roʻyxatdan oʻtish</Link></div></section>
+  </MarketingFrame>;
 }
