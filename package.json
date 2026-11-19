@@ -7,12 +7,17 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "android:add": "cap add android",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android",
     "db:start": "supabase start",
     "db:reset": "supabase db reset",
     "db:test": "psql \"$LOCAL_DB_URL\" -v ON_ERROR_STOP=1 -f supabase/tests/security_and_money.test.sql",
     "db:types": "supabase gen types typescript --local > src/types/database.ts"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.47.0",
     "next": "^15.1.0",
@@ -21,6 +26,7 @@
     "zod": "^3.24.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
