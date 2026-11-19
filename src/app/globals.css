@@ -30,11 +30,3 @@ img, svg, video, table { max-width: 100%; }
 }
 main article, main details { transition: none; }
 
-.qd-float--compact { padding: 0 !important; }
-.qd-visual-panel--compact {
-  width: 182%;
-  max-width: none;
-  flex: none;
-  transform: scale(.55);
-  transform-origin: center center;
-}
