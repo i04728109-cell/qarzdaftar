@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { NavLinks } from "@/components/NavLinks";
 import { RegisterStore } from "@/components/RegisterStore";
+import { Paywall } from "@/components/Paywall";
 
 const ITEMS = [
   { href: "/app", label: "Bosh" }, { href: "/app/customers", label: "Mijozlar" }, { href: "/app/debts", label: "Qarzlar" },
@@ -11,10 +12,13 @@ const ITEMS = [
 export default async function StoreLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
+  if (!user) redirect("/");
   const { data: store } = await supabase.from("stores").select("id, name, status, blocked_reason").eq("owner_id", user.id).maybeSingle();
   if (!store) return <RegisterStore />;
   const { data: sub } = await supabase.from("subscriptions").select("ends_at").eq("store_id", store.id).eq("status", "active").gt("ends_at", new Date().toISOString()).limit(1).maybeSingle();
+
+  // Store is usable only with an active subscription (the database also refuses writes without one).
+  if (!sub && store.status !== "blocked") return <Paywall storeName={store.name} />;
 
   // UI banner only: the database independently refuses writes when blocked / unsubscribed.
   const banner =
@@ -23,7 +27,7 @@ export default async function StoreLayout({ children }: { children: React.ReactN
     !sub ? "Obuna tugagan: maʼlumotlar faqat koʻrish rejimida. Obunani yangilang." : null;
 
   return (
-    <div className="mx-auto min-h-screen max-w-md pb-20">
+    <div className="mx-auto min-h-dvh w-full max-w-md pb-24">
       {banner && <div className="bg-[#3a2c08] p-3 text-center text-sm text-qd-amber">{banner}</div>}
       {children}
       <NavLinks items={ITEMS} variant="bottom" />

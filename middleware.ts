@@ -29,7 +29,7 @@ export async function middleware(req: NextRequest) {
   const isProtected = path.startsWith("/app") || path.startsWith("/admin") || (isApi && !PUBLIC_API.some((p) => path.startsWith(p)));
   if (!user && isProtected) {
     if (isApi) return NextResponse.json({ error: { code: "not_authenticated" } }, { status: 401 });
-    const url = req.nextUrl.clone(); url.pathname = "/login"; url.searchParams.set("next", path);
+    const url = req.nextUrl.clone(); url.pathname = "/"; url.searchParams.set("next", path);
     return NextResponse.redirect(url);
   }
   if (user && path.startsWith("/admin")) {

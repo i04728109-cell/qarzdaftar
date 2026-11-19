@@ -13,7 +13,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   // Defense in depth: middleware already checked; every API + RPC checks again inside the database.
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login?next=/admin");
+  if (!user) redirect("/?next=/admin");
   const { data: isAdmin } = await supabase.rpc("is_admin");
   if (isAdmin !== true) redirect("/app");
   return (

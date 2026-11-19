@@ -14,7 +14,7 @@ export const viewport: Viewport = { themeColor: "#04100c", width: "device-width"
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="uz">
-      <body className="min-h-screen bg-qd-bg font-sans text-qd-text antialiased">
+      <body className="min-h-dvh bg-qd-bg font-sans text-qd-text antialiased">
         {children}
         <PwaRegister />
       </body>
