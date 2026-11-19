@@ -16,14 +16,20 @@ input, select, textarea, button { font-size: 16px; font-family: inherit; max-wid
 img, svg, video, table { max-width: 100%; }
 
 
-/* Static presentation: animations and motion effects removed. */
-.qd-visual { isolation: isolate; }
-main article, main details, main a[class*="rounded-xl"] { transition: none; }
-main article:hover { transform: none; box-shadow: none; }
-header a, footer a { transition: none; }
-footer a:hover { color: #62e8a0; }
+/* Scroll reveal only: no floating or dashboard illustration motion. */
+@keyframes qd-scroll-reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  main > section {
+    animation: qd-scroll-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+main article, main details { transition: none; }
 
-/* Keep the dashboard preview fully visible in short feature-card media slots. */
 .qd-float--compact { padding: 0 !important; }
 .qd-visual-panel--compact {
   width: 182%;
