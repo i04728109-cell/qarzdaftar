@@ -2,7 +2,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { MarketingFrame, SectionHeading } from "@/components/Marketing";
-import MarketingPhoto from "@/components/MarketingPhoto";
 
 const benefits = [
   ["01", "Mijozlar bazasi", "Mijozlaringiz haqidagi maʼlumotlarni bitta joyda saqlang. Kerakli odamni qidiruv orqali tez toping."],
@@ -32,16 +31,6 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#9ab3a3]"><span>✓ Telefon va kompyuterda</span><span>✓ Bitta hisob, umumiy maʼlumotlar</span><span>✓ Oʻzbek tilida</span></div>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-8 rounded-full bg-[#1bb56b]/15 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#10291b] p-3 shadow-2xl shadow-black/40">
-            <MarketingPhoto spriteIndex={0} alt="Doʻkonda mijoz bilan hisob-kitob qilayotgan sotuvchi" loading="eager" className="h-[270px] w-full rounded-[22px] sm:h-[350px]" />
-            <div className="absolute bottom-7 left-7 right-7 rounded-2xl border border-white/15 bg-[#06170ee8] p-5 backdrop-blur-xl">
-              <div className="flex items-center justify-between"><div><p className="text-xs text-[#8fb7a0]">QarzDaftar bilan</p><p className="mt-1 text-lg font-extrabold text-white">Hisob-kitoblar tartibda</p></div><img src="/brand/qarzdaftar-mark.svg" alt="QarzDaftar" className="h-12 w-12" /></div>
-              <div className="mt-4 grid grid-cols-3 gap-2 text-center"><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Mijozlar</p><p className="mt-1 text-sm font-bold text-white">Baza</p></div><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Qarzlar</p><p className="mt-1 text-sm font-bold text-white">Nazorat</p></div><div className="rounded-xl bg-white/5 p-3"><p className="text-[10px] text-[#9db5a6]">Toʻlovlar</p><p className="mt-1 text-sm font-bold text-white">Tarix</p></div></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -60,9 +49,9 @@ export default async function Home() {
     </section>
 
     <section className="bg-[#0a1d12] py-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-white/10"><MarketingPhoto spriteIndex={3} alt="Moliyaviy statistikani koʻrayotgan biznes egasi" className="h-[340px] w-full sm:h-[430px]" /></div>
-        <div><SectionHeading eyebrow="Har kuni qulay" title="Daftarni qidirishga vaqt ketkazmang" text="Mijozning ismini toping, qarz qoldigʻini tekshiring va toʻlovni qayd qiling. Kerakli tarix bitta mijoz kartasida jamlanadi."/><Link href="/how-it-works" className="mt-7 inline-flex rounded-xl border border-[#327c51] px-5 py-3 font-bold text-[#baf5d0] hover:bg-[#123321]">Qanday ishlashini koʻrish →</Link></div>
+      <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
+        <SectionHeading eyebrow="Har kuni qulay" title="Daftarni qidirishga vaqt ketkazmang" text="Mijozning ismini toping, qarz qoldigʻini tekshiring va toʻlovni qayd qiling. Kerakli tarix bitta mijoz kartasida jamlanadi." />
+        <Link href="/how-it-works" className="mt-7 inline-flex rounded-xl border border-[#327c51] px-5 py-3 font-bold text-[#baf5d0] hover:bg-[#123321]">Qanday ishlashini koʻrish →</Link>
       </div>
     </section>
 
