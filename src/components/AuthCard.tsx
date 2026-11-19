@@ -37,8 +37,8 @@ export function AuthCard({ initial = "register" }: { initial?: "login" | "regist
         });
         if (r.status === 409) return setMsg("Bu raqam allaqachon roʻyxatdan oʻtgan. «Kirish» ni bosing.");
         if (!r.ok) {
-          const j = await r.json().catch(() => null) as { error?: { code?: string } } | null;
-          return setMsg(`Roʻyxatdan oʻtib boʻlmadi. Maʼlumotlarni tekshiring. (${j?.error?.code ?? r.status})`);
+          const j = await r.json().catch(() => null) as { error?: { code?: string; message?: string } } | null;
+          return setMsg(j?.error?.message ?? `Roʻyxatdan oʻtib boʻlmadi. Xatolik kodi: ${j?.error?.code ?? r.status}`);
         }
       }
       await signIn(phone);
