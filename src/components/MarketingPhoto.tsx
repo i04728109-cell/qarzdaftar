@@ -36,9 +36,11 @@ export default function MarketingPhoto({ src, alt, className = "", loading = "la
           className="h-full w-full object-cover"
         />
       ) : (
-        <div role="img" aria-label={alt} className="flex h-full min-h-40 items-center justify-center bg-gradient-to-br from-[#173d28] to-[#07170e] p-6 text-center">
-          <span className="text-sm font-semibold text-[#b9e8ca]">QarzDaftar</span>
-        </div>
+        <img
+          src="/images/qarzdaftar-photo-fallback.svg"
+          alt={alt}
+          className="h-full min-h-40 w-full object-cover"
+        />
       )}
     </div>
   );
