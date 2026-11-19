@@ -30,3 +30,31 @@ img, svg, video, table { max-width: 100%; }
 }
 main article, main details { transition: none; }
 
+
+
+/* QarzDaftar appearance modes: Forest, Light, Ocean. */
+body[data-qd-theme="light"] { background:#f3f7f4 !important; color:#14251b !important; }
+body[data-qd-theme="light"] header, body[data-qd-theme="light"] footer { background:rgba(255,255,255,.97) !important; border-color:#d8e5dc !important; }
+body[data-qd-theme="light"] main section { border-color:#d8e5dc !important; }
+body[data-qd-theme="light"] main article, body[data-qd-theme="light"] main aside, body[data-qd-theme="light"] main details,
+body[data-qd-theme="light"] [class*="bg-[#0b2014]"], body[data-qd-theme="light"] [class*="bg-[#0c2115]"],
+body[data-qd-theme="light"] [class*="bg-[#10291b]"], body[data-qd-theme="light"] [class*="bg-[#081a10]"],
+body[data-qd-theme="light"] [class*="bg-[#04100a]"], body[data-qd-theme="light"] [class*="bg-[#06150e]"] {
+ background:#fff !important; border-color:#dce8df !important; box-shadow:0 8px 28px rgba(20,55,34,.05);
+}
+body[data-qd-theme="light"] h1, body[data-qd-theme="light"] h2, body[data-qd-theme="light"] h3,
+body[data-qd-theme="light"] [class*="text-white"], body[data-qd-theme="light"] header a, body[data-qd-theme="light"] footer a { color:#14251b !important; }
+body[data-qd-theme="light"] p, body[data-qd-theme="light"] [class*="text-[#9"], body[data-qd-theme="light"] [class*="text-[#a"], body[data-qd-theme="light"] [class*="text-[#b"] { color:#52685a !important; }
+body[data-qd-theme="light"] [class*="bg-gradient-to"] { background-image:none !important; }
+
+body[data-qd-theme="ocean"] { background:#071321 !important; color:#eaf4ff !important; }
+body[data-qd-theme="ocean"] header, body[data-qd-theme="ocean"] footer { background:rgba(5,17,32,.97) !important; border-color:#1b3855 !important; }
+body[data-qd-theme="ocean"] main section { border-color:#1b3855 !important; }
+body[data-qd-theme="ocean"] main article, body[data-qd-theme="ocean"] main aside, body[data-qd-theme="ocean"] main details,
+body[data-qd-theme="ocean"] [class*="bg-[#0b2014]"], body[data-qd-theme="ocean"] [class*="bg-[#0c2115]"],
+body[data-qd-theme="ocean"] [class*="bg-[#10291b]"], body[data-qd-theme="ocean"] [class*="bg-[#081a10]"],
+body[data-qd-theme="ocean"] [class*="bg-[#04100a]"] { background-color:#0d2238 !important; border-color:#244969 !important; }
+body[data-qd-theme="ocean"] [class*="text-[#4"], body[data-qd-theme="ocean"] [class*="text-[#5"], body[data-qd-theme="ocean"] [class*="text-[#6"], body[data-qd-theme="ocean"] [class*="text-[#3"] { color:#72c7ff !important; }
+body[data-qd-theme="ocean"] [class*="bg-[#35d887]"], body[data-qd-theme="ocean"] [class*="bg-[#39dc8b]"], body[data-qd-theme="ocean"] [class*="bg-[#3cde8e]"] { background-color:#55b9f2 !important; }
+body[data-qd-theme="ocean"] [class*="text-[#052014]"], body[data-qd-theme="ocean"] [class*="text-[#062014]"] { color:#061727 !important; }
+@media(max-width:420px){header [role="group"][aria-label="Sayt uslubini tanlash"] button{padding-left:7px;padding-right:7px;font-size:10px}}
