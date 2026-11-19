@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root { color-scheme: dark; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: clip; overflow-y: auto; scroll-behavior: auto; }
 html, body { background: #04100c; color: #e8fff3; }
 body {
   -webkit-tap-highlight-color: transparent;
-  min-width: 320px; overflow-x: hidden; overscroll-behavior-y: none;
+  min-width: 320px; overflow-x: clip; overflow-y: auto; overscroll-behavior-y: auto;
   padding-top: env(safe-area-inset-top, 0px);
   padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
-  touch-action: manipulation;
+  touch-action: pan-y;
 }
 input, select, textarea, button { font-size: 16px; font-family: inherit; max-width: 100%; }
 img, svg, video, table { max-width: 100%; }
