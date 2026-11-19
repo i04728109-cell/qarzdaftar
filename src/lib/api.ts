@@ -15,7 +15,7 @@ const DB_ERRORS: Record<string, number> = {
   reason_required: 422, invalid_attachment_path: 422,
   debt_has_payments: 409, debt_cancelled: 409, already_voided: 409, already_paid: 409,
   store_already_exists: 409, pending_request_exists: 409, conversation_closed: 409,
-  invalid_state: 409, customer_has_open_debts: 409, payment_immutable: 409, immutable_record: 409,
+  invalid_state: 409, phone_taken: 409, customer_has_open_debts: 409, payment_immutable: 409, immutable_record: 409,
 };
 
 export class HttpError extends Error {

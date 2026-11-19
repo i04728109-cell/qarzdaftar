@@ -3,7 +3,7 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
 type CookieToSet = { name: string; value: string; options: CookieOptions };
 
-const PUBLIC_API = ["/api/cron/"];
+const PUBLIC_API = ["/api/cron/", "/api/auth/"];
 
 export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
