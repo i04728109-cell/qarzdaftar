@@ -56,10 +56,33 @@ export default async function Home() {
     </section>
 
     <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
-      <div className="grid items-center gap-10 rounded-[30px] border border-[#24623e] bg-gradient-to-br from-[#123d25] to-[#07180e] p-7 sm:p-10 lg:grid-cols-[1fr_.8fr]">
-        <div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#68e9a3]">Istalgan joyda</p><h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">QarzDaftar telefoningizda ham</h2><p className="mt-4 max-w-xl text-sm leading-7 text-[#b0c8b8]">Android ilovasini yuklab oling va veb-saytdagi hisobingiz bilan kiring. Maʼlumotlar internet orqali hisobingiz bilan sinxron ishlaydi.</p><Link href="/download" className="mt-7 inline-flex rounded-xl bg-[#3cde8e] px-6 py-3.5 font-extrabold text-[#062014]">Android ilova haqida →</Link></div>
-        <div className="mx-auto flex w-full max-w-xs items-center justify-center rounded-[32px] border-[7px] border-[#294c37] bg-[#06130b] p-3 shadow-2xl"><div className="w-full rounded-[22px] bg-[#102a1a] p-5"><img src="/brand/qarzdaftar-mark.svg" alt="QarzDaftar belgisi" className="mx-auto h-16 w-16"/><p className="mt-4 text-center text-lg font-black text-white">QarzDaftar</p><p className="mt-1 text-center text-xs text-[#94b29f]">Hisobingiz doimo yoningizda</p><div className="mt-6 space-y-2"><div className="h-10 rounded-lg bg-white/10"/><div className="h-10 rounded-lg bg-white/10"/><div className="h-10 rounded-lg bg-[#1c7545]"/></div></div></div>
+      <div className="rounded-[30px] border border-[#24623e] bg-gradient-to-br from-[#123d25] to-[#07180e] p-7 sm:p-10">
+        <div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#68e9a3]">Istalgan joyda</p><h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">QarzDaftar telefoningizda ham</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-[#b0c8b8]">Android ilovasi tayyorlanmoqda. Hozircha QarzDaftar veb-versiyasidan telefoningiz yoki kompyuteringiz brauzeri orqali foydalanishingiz mumkin. Rasmiy APK tayyor boʻlganda yuklab olish sahifasida eʼlon qilinadi.</p><Link href="/download" className="mt-7 inline-flex rounded-xl bg-[#3cde8e] px-6 py-3.5 font-extrabold text-[#062014]">Android ilova haqida →</Link></div>
       </div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <SectionHeading eyebrow="Kimlar uchun?" title="Doʻkon va kichik biznesdagi kundalik hisob uchun" text="Mijozlar bilan muntazam hisob-kitob qiladigan, qarz va toʻlov yozuvlarini yoʻqotmasdan saqlashni istaydigan foydalanuvchilar uchun." />
+      <div className="mt-10 grid gap-5 md:grid-cols-3">
+        {[["Mahalla doʻkoni","Doimiy mijozlar va ularning qarz yozuvlarini bir joyda yuriting."],["Kichik savdo nuqtasi","Qabul qilingan toʻlovlarni qayd etib, qolgan balansni kuzating."],["Xizmat koʻrsatuvchi biznes","Mijozlar boʻyicha hisob-kitob tarixini tartib bilan saqlang."]].map(([title,desc])=><article key={title} className="rounded-2xl border border-white/10 bg-[#0b2014] p-6"><h3 className="text-lg font-extrabold text-white">{title}</h3><p className="mt-3 text-sm leading-7 text-[#9eb5a6]">{desc}</p></article>)}
+      </div>
+    </section>
+
+    <section className="bg-[#081a10] py-20">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <SectionHeading eyebrow="Ish tartibi" title="Uchta asosiy amal" text="Hisob-kitobni yuritish uchun quyidagi oddiy ketma-ketlikdan foydalaning." />
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {[["01","Mijozni qoʻshing","Ism va kerakli aloqa maʼlumotlarini kiriting."],["02","Qarz yoki toʻlovni yozing","Summani tegishli mijoz hisobiga qayd eting."],["03","Tarixni tekshiring","Mijoz kartasida oldingi yozuvlarni kuzating."]].map(([n,title,desc])=><div key={n} className="rounded-2xl border border-white/10 bg-[#0b2014] p-6"><p className="text-sm font-black text-[#48df95]">{n}</p><h3 className="mt-4 text-lg font-bold text-white">{title}</h3><p className="mt-2 text-sm leading-7 text-[#9eb5a6]">{desc}</p></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="mx-auto max-w-5xl px-5 py-20">
+      <SectionHeading eyebrow="Koʻp soʻraladi" title="Boshlashdan oldin bilib oling" text="QarzDaftar kimlar uchun moʻljallangani, telefonda ishlashi va Android ilovasi holati haqida." />
+      <div className="mt-8 space-y-3">
+        {[["QarzDaftar kimlar uchun?","Mijozlar, qarzlar va toʻlovlarni tartibli yuritadigan doʻkonlar va kichik bizneslar uchun."],["Telefonda ishlaydimi?","Ha, veb-sayt telefon va kompyuter ekranlariga moslashadi."],["Android APK tayyormi?","APK ommaviy yuklab olishga tasdiqlanganda yuklab olish sahifasida havola beriladi."]].map(([q,a])=><details key={q} className="rounded-2xl border border-white/10 bg-[#0b2014] p-5"><summary className="cursor-pointer font-bold text-white">{q}</summary><p className="mt-3 text-sm leading-7 text-[#a9c0b1]">{a}</p></details>)}
+      </div>
+      <Link href="/faq" className="mt-6 inline-flex font-bold text-[#55e49b]">Barcha savol-javoblar →</Link>
     </section>
 
     <section className="px-5 pb-20"><div className="mx-auto max-w-5xl rounded-3xl border border-white/10 bg-[#10271a] px-6 py-12 text-center sm:px-12"><h2 className="text-3xl font-black text-white">Hisob-kitoblaringizni tartibga solishga tayyormisiz?</h2><p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#a2b9aa]">QarzDaftar hisobini yarating va mijozlaringiz bilan ishlashni qulayroq qiling.</p><Link href="/login?next=/app" className="mt-7 inline-flex rounded-xl bg-[#3cde8e] px-7 py-3.5 font-extrabold text-[#062014]">Roʻyxatdan oʻtish</Link></div></section>
