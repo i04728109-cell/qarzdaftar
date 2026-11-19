@@ -39,7 +39,10 @@ function LoginForm() {
           body: JSON.stringify({ phone, password: f.password, full_name: f.name, store_name: f.store }),
         });
         if (r.status === 409) return setMsg("Bu raqam allaqachon roʻyxatdan oʻtgan. Kirish tugmasini bosing.");
-        if (!r.ok) return setMsg("Roʻyxatdan oʻtib boʻlmadi. Maʼlumotlarni tekshirib, qayta urining.");
+        if (!r.ok) {
+          const j = await r.json().catch(() => null) as { error?: { code?: string } } | null;
+          return setMsg(`Roʻyxatdan oʻtib boʻlmadi. Maʼlumotlarni tekshirib, qayta urining. (${j?.error?.code ?? r.status})`);
+        }
       }
       await signIn(phone);
     } catch {

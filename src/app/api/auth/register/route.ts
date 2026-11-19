@@ -40,6 +40,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ data: { ok: true } }, { status: 201 });
   } catch (e) {
+    const x = e as { message?: string; code?: string };
+    if (x?.message === "SUPABASE_SERVICE_ROLE_KEY is not set") return fail(500, "server_not_configured", "SUPABASE_SERVICE_ROLE_KEY is missing in Vercel env");
+    if (x?.code === "42P01" || x?.code === "PGRST205" || x?.code === "PGRST204") return fail(500, "database_not_ready", "Run supabase/ALL_IN_ONE.sql in Supabase SQL Editor");
+    if (x?.message && /invalid api key|jwt|apikey/i.test(x.message)) return fail(500, "bad_supabase_keys", "Supabase keys in Vercel env are wrong");
     return toResponse(e);
   }
 }
