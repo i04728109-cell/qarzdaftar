@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 
 const nav = [
   ["/features", "Imkoniyatlar"],
@@ -27,6 +28,7 @@ export function MarketingHeader() {
         {nav.map(([href,label]) => <Link key={href} href={href} className={`text-sm font-medium transition hover:text-[#54e69a] ${pathname===href ? "text-[#54e69a]" : "text-[#a7c0b1]"}`}>{label}</Link>)}
       </nav>
       <div className="flex items-center gap-2">
+        <SiteStyleSwitcher />
         <Link href="/login?next=/app" className="hidden rounded-xl px-4 py-2.5 text-sm font-semibold text-[#dff8e9] transition hover:bg-white/5 sm:inline-flex">Kirish</Link>
         <Link href="/download" className="rounded-xl bg-[#35d887] px-4 py-2.5 text-sm font-bold text-[#052014] transition hover:bg-[#65e9a5]">Ilovani olish</Link>
       </div>
