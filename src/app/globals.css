@@ -39,3 +39,13 @@ footer a:hover { color: #62e8a0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+
+/* Keep the dashboard preview fully visible in short feature-card media slots. */
+.qd-visual-panel--compact {
+  width: 145%;
+  max-width: none;
+  flex: none;
+  transform: scale(.68);
+  transform-origin: center center;
+}
