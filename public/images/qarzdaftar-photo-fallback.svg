@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="QarzDaftar business illustration">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#174b2e"/><stop offset="1" stop-color="#07170e"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d5ffe5" stop-opacity=".9"/><stop offset="1" stop-color="#75dba0" stop-opacity=".55"/></linearGradient></defs>
+<rect width="1200" height="720" fill="url(#bg)"/><circle cx="960" cy="130" r="230" fill="#39d887" opacity=".12"/><circle cx="170" cy="620" r="270" fill="#39d887" opacity=".1"/>
+<rect x="180" y="170" width="840" height="430" rx="30" fill="#0a2415" stroke="#5be49b" stroke-opacity=".45" stroke-width="5"/>
+<path d="M245 270h710v270H245z" fill="url(#glass)" opacity=".22"/><path d="M210 275h780l-65-115H275z" fill="#36d887"/><path d="M275 160h650l65 115H210z" fill="#2a9b5c"/>
+<path d="M300 285h250v255H300zM590 285h330v255H590z" fill="#b8f5d0" opacity=".14" stroke="#9af0ba" stroke-width="8"/>
+<path d="M425 285v255M755 285v255" stroke="#9af0ba" stroke-width="7" opacity=".65"/>
+<rect x="655" y="335" width="205" height="120" rx="18" fill="#f1fff6"/><path d="M690 375h135M690 405h95" stroke="#26864e" stroke-width="12" stroke-linecap="round"/>
+<circle cx="395" cy="220" r="28" fill="#f5c99b"/><path d="M365 215q30-48 62 0" fill="#173d27"/><path d="M350 275q45-60 90 0v105h-90z" fill="#e7fff0"/>
+<circle cx="820" cy="220" r="28" fill="#d9a77e"/><path d="M790 215q30-48 62 0" fill="#173d27"/><path d="M775 275q45-60 90 0v105h-90z" fill="#44d98c"/>
+<rect x="420" y="500" width="360" height="22" rx="11" fill="#48df92" opacity=".75"/>
+<text x="600" y="660" text-anchor="middle" fill="#eafff2" font-family="Arial,sans-serif" font-size="34" font-weight="700">QarzDaftar — hisob-kitoblar tartibda</text>
+</svg>
