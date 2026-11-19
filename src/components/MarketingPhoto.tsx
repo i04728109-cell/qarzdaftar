@@ -19,13 +19,14 @@ export default function MarketingPhoto({ alt, className = "", spriteIndex = 0 }:
     { label: "Biznesingiz", value: "Bir joyda", detail: "Oddiy va qulay boshqaruv", bars: ["w-full", "w-3/5", "w-4/5"] },
   ];
   const item = variants[Math.max(0, Math.min(5, spriteIndex))];
+  const compact = className.includes("h-52");
   return (
     <div role="img" aria-label={alt} className={`qd-visual relative isolate overflow-hidden bg-[#071b10] ${className}`}>
       <div className="qd-visual-glow absolute -right-12 -top-16 h-56 w-56 rounded-full bg-emerald-400/20 blur-3xl" />
       <div className="qd-visual-glow qd-visual-glow-delay absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-teal-400/15 blur-3xl" />
       <div className="absolute inset-0 opacity-[.09]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.22) 1px,transparent 1px)", backgroundSize: "30px 30px" }} />
       <div className="qd-float relative mx-auto flex h-full w-full max-w-md items-center justify-center p-5 sm:p-8">
-        <div className="w-full rounded-[26px] border border-white/15 bg-[#0b2618]/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-6">
+        <div className={`qd-visual-panel w-full rounded-[26px] border border-white/15 bg-[#0b2618]/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-6 ${compact ? "qd-visual-panel--compact" : ""}`}>
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-400/15"><img src="/brand/qarzdaftar-mark.svg" alt="" className="h-7 w-7" /></div><div><p className="text-xs font-bold text-white">QarzDaftar</p><p className="mt-1 text-[10px] text-emerald-200/60">Boshqaruv paneli</p></div></div>
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,.9)]" />
