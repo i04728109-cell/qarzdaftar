@@ -16,30 +16,12 @@ input, select, textarea, button { font-size: 16px; font-family: inherit; max-wid
 img, svg, video, table { max-width: 100%; }
 
 
-/* Subtle motion system for the photo-free QarzDaftar marketing site. */
-@keyframes qd-fade-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes qd-float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-9px) rotate(.35deg); } }
-@keyframes qd-glow { 0%,100% { opacity: .45; transform: scale(.94); } 50% { opacity: .9; transform: scale(1.08); } }
-@keyframes qd-orbit { 0%,100% { transform: translate3d(0,0,0) rotate(0deg); } 50% { transform: translate3d(8px,-12px,0) rotate(12deg); } }
-@keyframes qd-shimmer { 0% { background-position: 180% 0; } 100% { background-position: -180% 0; } }
+/* Static presentation: animations and motion effects removed. */
 .qd-visual { isolation: isolate; }
-.qd-float { animation: qd-float 6s ease-in-out infinite; }
-.qd-visual-glow { animation: qd-glow 7s ease-in-out infinite; }
-.qd-visual-glow-delay { animation-delay: -3.5s; }
-.qd-orbit { animation: qd-orbit 7s ease-in-out infinite; }
-.qd-orbit-delay { animation-delay: -3s; }
-main > section { animation: qd-fade-up .65s ease both; }
-main > section:nth-child(2) { animation-delay: .08s; }
-main > section:nth-child(3) { animation-delay: .14s; }
-main > section:nth-child(4) { animation-delay: .2s; }
-main article, main details, main a[class*="rounded-xl"] { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-main article:hover { transform: translateY(-5px); box-shadow: 0 18px 45px rgba(0,0,0,.18); }
-header a, footer a { transition: color .2s ease, opacity .2s ease; }
+main article, main details, main a[class*="rounded-xl"] { transition: none; }
+main article:hover { transform: none; box-shadow: none; }
+header a, footer a { transition: none; }
 footer a:hover { color: #62e8a0; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
-}
-
 
 /* Keep the dashboard preview fully visible in short feature-card media slots. */
 .qd-float--compact { padding: 0 !important; }
