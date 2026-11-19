@@ -42,10 +42,11 @@ footer a:hover { color: #62e8a0; }
 
 
 /* Keep the dashboard preview fully visible in short feature-card media slots. */
+.qd-float--compact { padding: 0 !important; }
 .qd-visual-panel--compact {
-  width: 145%;
+  width: 182%;
   max-width: none;
   flex: none;
-  transform: scale(.68);
+  transform: scale(.55);
   transform-origin: center center;
 }
