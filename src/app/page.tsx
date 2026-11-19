@@ -21,7 +21,7 @@ export default async function Home() {
   return <MarketingFrame>
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_75%_15%,rgba(26,143,82,.22),transparent_45%),linear-gradient(120deg,#06170e,#071c12_55%,#04100a)]" />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:py-20 lg:grid-cols-1 lg:px-8 lg:py-24">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-[#286b46] bg-[#0c2b1b] px-4 py-2 text-xs font-semibold text-[#a8f0c5]"><span className="h-2 w-2 rounded-full bg-[#42e38e]" /> Kundalik hisob-kitoblar uchun raqamli yordamchi</div>
           <h1 className="mt-7 max-w-2xl text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[62px]">Qarzlarni yozib boring. <span className="text-[#4be092]">Ishingizni ishonch bilan</span> boshqaring.</h1>
