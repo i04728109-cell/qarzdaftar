@@ -13,6 +13,9 @@ export function SiteStyleSwitcher({ compact = false }: { compact?: boolean }) {
     const saved = localStorage.getItem("qd-theme");
     const initial: Theme = saved === "bright" ? "bright" : document.documentElement.dataset.theme === "bright" ? "bright" : "dark";
     setTheme(initial);
+    document.documentElement.dataset.theme = initial;
+    document.body.dataset.qdTheme = initial === "bright" ? "light" : "forest";
+    document.documentElement.style.colorScheme = initial === "bright" ? "light" : "dark";
   }, []);
   function chooseTheme(next: Theme) {
     setTheme(next);
