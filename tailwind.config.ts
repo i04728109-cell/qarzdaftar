@@ -1,15 +1,16 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens taken from the approved prototype (design/qarzdaftar-prototype.html).
+const rgb = (name: string) => `rgb(var(--qd-${name}) / <alpha-value>)`;
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
         qd: {
-          bg: "#04100c", card: "#0d1f19", card2: "#122a21", line: "#173226",
-          green: "#22e07a", emerald: "#10b981", text: "#e8fff3", mute: "#7fa594",
-          red: "#ff5d6c", amber: "#f5b942",
+          bg: rgb("bg"), card: rgb("card"), card2: rgb("card2"), line: rgb("line"),
+          green: rgb("green"), emerald: rgb("emerald"), text: rgb("text"), mute: rgb("mute"),
+          red: rgb("red"), amber: rgb("amber"), nav: rgb("nav"), "warn-bg": rgb("warn-bg"),
+          "on-accent": rgb("on-accent"),
         },
       },
       borderRadius: { qd: "18px" },
