@@ -1,5 +1,2 @@
-import { ScreenStub } from "@/components/ScreenStub";
-
-export default function Page() {
-  return <ScreenStub title="Profil va sozlamalar" proto="Store App → Profil" api={["GET /api/store", "PATCH /api/store"]} />;
-}
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
+export default function Page(){ return <main className="client-theme qd-page" data-theme="yashil"><header className="qd-head"><div><h1>Profil</h1><p>Sozlamalar</p></div></header><section className="qd-panel p-5"><h2 className="text-lg font-bold">Ilova uslubi</h2><p className="mt-2 text-sm text-qd-mute">Oq yoki yashil mavzuni tanlang.</p><div className="mt-4"><SiteStyleSwitcher /></div></section></main>}
