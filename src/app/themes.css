@@ -25,3 +25,42 @@ html,body { background: rgb(var(--qd-bg)); color: rgb(var(--qd-text)); }
 :root[data-theme="bright"] body :is(a,button,input,textarea,select):focus-visible { outline:2px solid #047857!important; outline-offset:2px; }
 :root[data-theme="bright"] body :disabled, :root[data-theme="bright"] body [aria-disabled="true"] { opacity:.55; cursor:not-allowed; }
 :root[data-theme="bright"] body nav a[aria-current="page"], :root[data-theme="bright"] body nav a[class*="text-qd-green"] { font-weight:800; text-decoration:underline; text-underline-offset:4px; }
+
+
+/* Landing-page light theme repairs */
+:root[data-theme="bright"] body main > section:first-child > div.absolute {
+ background: radial-gradient(ellipse at 78% 18%, rgba(4,120,87,.10), transparent 42%), linear-gradient(120deg,#f7faf8,#eef5f1 55%,#f8fbf9) !important;
+}
+:root[data-theme="bright"] body main > section:first-child {
+ border-color:#d5e1db !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside {
+ background:#ffffff !important; border-color:#cbd5d1 !important; box-shadow:0 14px 40px rgba(15,23,42,.08) !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside [class*="bg-[#"] {
+ background:#f4f8f6 !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside [class*="text-white"],
+:root[data-theme="bright"] body main > section:first-child aside h2 {
+ color:#10251b !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside p {
+ color:#46584e !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside [class*="border-white"] {
+ border-color:#cbd5d1 !important;
+}
+:root[data-theme="bright"] body main > section:first-child aside [class*="bg-[#1"],
+:root[data-theme="bright"] body main > section:first-child aside [class*="bg-[#0"],
+:root[data-theme="bright"] body main > section:first-child aside [class*="bg-[#1a"] {
+ background:#edf5f0 !important;
+}
+:root[data-theme="bright"] body main > section:not(:first-child) {
+ background-color:#f8faf9 !important;
+ border-color:#d9e4de !important;
+}
+:root[data-theme="bright"] body main article,
+:root[data-theme="bright"] body main details {
+ background:#fff !important;
+ border-color:#d1ddd6 !important;
+}
