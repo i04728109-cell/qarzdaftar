@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { NavLinks } from "@/components/NavLinks";
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 import { RegisterStore } from "@/components/RegisterStore";
 import { Paywall } from "@/components/Paywall";
 
@@ -28,6 +29,7 @@ export default async function StoreLayout({ children }: { children: React.ReactN
 
   return (
     <div className="mx-auto min-h-dvh w-full max-w-md pb-24">
+      <div className="flex justify-end p-3"><SiteStyleSwitcher /></div>
       {banner && <div className="bg-[#3a2c08] p-3 text-center text-sm text-qd-amber">{banner}</div>}
       {children}
       <NavLinks items={ITEMS} variant="bottom" />
