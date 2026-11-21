@@ -1,0 +1,27 @@
+/* QarzDaftar dual-theme tokens: RGB channels enable Tailwind opacity modifiers. */
+:root[data-theme="dark"] {
+ color-scheme: dark;
+ --qd-bg: 4 16 12; --qd-card: 13 31 25; --qd-card2: 18 42 33; --qd-line: 23 50 38;
+ --qd-green: 34 224 122; --qd-emerald: 16 185 129; --qd-text: 232 255 243; --qd-mute: 127 165 148;
+ --qd-red: 255 93 108; --qd-amber: 245 185 66; --qd-nav: 8 23 15; --qd-warn-bg: 58 44 8; --qd-on-accent: 5 32 20;
+}
+:root[data-theme="bright"] {
+ color-scheme: light;
+ --qd-bg: 255 255 255; --qd-card: 255 255 255; --qd-card2: 244 247 245; --qd-line: 31 41 55;
+ --qd-green: 4 120 87; --qd-emerald: 16 185 129; --qd-text: 11 20 16; --qd-mute: 63 75 69;
+ --qd-red: 185 28 28; --qd-amber: 146 64 14; --qd-nav: 244 247 245; --qd-warn-bg: 255 247 237; --qd-on-accent: 255 255 255;
+}
+html,body { background: rgb(var(--qd-bg)); color: rgb(var(--qd-text)); }
+:root[data-theme="bright"] body { --qd-page:#fff; --qd-surface:#fff; --qd-surface-2:#f4f7f5; --qd-line:#1f2937; --qd-ink:#0b1410; --qd-muted:#3f4b45; --qd-accent:#047857; --qd-accent-ink:#fff; --qd-header:#fff; --qd-footer:#f4f7f5; --qd-shadow:none; }
+:root[data-theme="dark"] body { --qd-page:#04100c; --qd-surface:#0d1f19; --qd-surface-2:#122a21; --qd-line:#173226; --qd-ink:#e8fff3; --qd-muted:#7fa594; --qd-accent:#22e07a; --qd-accent-ink:#052014; --qd-header:rgba(6,21,14,.94); --qd-footer:#04100a; --qd-shadow:0 14px 36px rgba(0,0,0,.16); }
+:root[data-theme="bright"] body [class*="shadow-"] { box-shadow:none!important; }
+:root[data-theme="bright"] body main article, :root[data-theme="bright"] body main aside, :root[data-theme="bright"] body main details, :root[data-theme="bright"] body main [class*="rounded-"][class*="border"] { border:1px solid #1f2937!important; }
+:root[data-theme="bright"] body main [class*="bg-[#"] { background:#fff!important; border-color:#1f2937!important; color:#0b1410!important; }
+:root[data-theme="bright"] body main [class*="bg-gradient-to-"] { background:#f4f7f5!important; }
+:root[data-theme="bright"] body main [class*="text-white"], :root[data-theme="bright"] body main [class*="text-[#e"], :root[data-theme="bright"] body main [class*="text-[#f"], :root[data-theme="bright"] body main [class*="text-[#d"], :root[data-theme="bright"] body main [class*="text-[#c"] { color:#0b1410!important; }
+:root[data-theme="bright"] body main p, :root[data-theme="bright"] body main li, :root[data-theme="bright"] body main [class*="text-[#9"], :root[data-theme="bright"] body main [class*="text-[#a"], :root[data-theme="bright"] body main [class*="text-[#8"], :root[data-theme="bright"] body main [class*="text-[#7"] { color:#3f4b45!important; }
+:root[data-theme="bright"] body main [class*="bg-[#3"], :root[data-theme="bright"] body main [class*="bg-[#4"], :root[data-theme="bright"] body main [class*="bg-[#2"] { background:#047857!important; color:#fff!important; }
+:root[data-theme="bright"] body input, :root[data-theme="bright"] body textarea, :root[data-theme="bright"] body select { background:#fff!important; color:#0b1410!important; border:1px solid #1f2937!important; }
+:root[data-theme="bright"] body :is(a,button,input,textarea,select):focus-visible { outline:2px solid #047857!important; outline-offset:2px; }
+:root[data-theme="bright"] body :disabled, :root[data-theme="bright"] body [aria-disabled="true"] { opacity:.55; cursor:not-allowed; }
+:root[data-theme="bright"] body nav a[aria-current="page"], :root[data-theme="bright"] body nav a[class*="text-qd-green"] { font-weight:800; text-decoration:underline; text-underline-offset:4px; }
