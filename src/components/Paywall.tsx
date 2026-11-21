@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { formatUZS } from "@/lib/money";
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 
 type Plan = { id: string; name: string; duration_months: number; price_uzs: number };
 type Sub = { id: string; status: string; created_at: string };
@@ -42,8 +43,8 @@ export function Paywall({ storeName }: { storeName: string }) {
   async function logout() { await createClient().auth.signOut(); router.replace("/"); router.refresh(); }
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col gap-4 px-4 py-8">
-      <header className="flex items-center justify-between">
+    <main className="client-theme mx-auto flex min-h-dvh w-full max-w-md flex-col gap-4 px-4 py-8" data-theme="yashil">
+      <header className="flex items-center justify-between"><SiteStyleSwitcher />
         <h1 className="text-2xl font-extrabold">Qarz<span className="text-qd-green">Daftar</span></h1>
         <button onClick={logout} className="text-sm text-qd-mute">Chiqish</button>
       </header>
