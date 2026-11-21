@@ -4,6 +4,7 @@ import { NavLinks } from "@/components/NavLinks";
 import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 import { RegisterStore } from "@/components/RegisterStore";
 import { Paywall } from "@/components/Paywall";
+import { cookies } from "next/headers";
 
 const ITEMS = [
   { href: "/app", label: "Bosh" }, { href: "/app/customers", label: "Mijozlar" }, { href: "/app/debts", label: "Qarzlar" },
@@ -27,10 +28,12 @@ export default async function StoreLayout({ children }: { children: React.ReactN
     store.status === "pending" ? "Doʻkon admin tasdiqlashini kutmoqda. Obunani faollashtiring." :
     !sub ? "Obuna tugagan: maʼlumotlar faqat koʻrish rejimida. Obunani yangilang." : null;
 
+  const cookieJar = await cookies();
+  const theme = cookieJar.get("qd-theme")?.value === "oq" ? "oq" : "yashil";
   return (
-    <div className="mx-auto min-h-dvh w-full max-w-md pb-24">
+    <div className="client-theme mx-auto min-h-dvh w-full max-w-md pb-24" data-theme={theme}>
       <div className="flex justify-end p-3"><SiteStyleSwitcher /></div>
-      {banner && <div className="bg-[#3a2c08] p-3 text-center text-sm text-qd-amber">{banner}</div>}
+      {banner && <div className="bg-cl-warn p-3 text-center text-sm text-qd-amber">{banner}</div>}
       {children}
       <NavLinks items={ITEMS} variant="bottom" />
     </div>
