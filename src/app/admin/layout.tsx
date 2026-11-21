@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { NavLinks } from "@/components/NavLinks";
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 
 const ITEMS = [
   { href: "/admin", label: "Dashboard" }, { href: "/admin/stores", label: "Doʻkonlar" },
@@ -18,6 +19,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (isAdmin !== true) redirect("/app");
   return (
     <div className="mx-auto grid max-w-6xl gap-4 p-3 md:grid-cols-[190px_1fr]">
+      <div className="col-span-full flex justify-end"><SiteStyleSwitcher /></div>
       <NavLinks items={ITEMS} variant="side" />
       <main>{children}</main>
     </div>
