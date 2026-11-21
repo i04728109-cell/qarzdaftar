@@ -18,11 +18,8 @@ img,svg,video,table { max-width:100%; }
   *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; }
 }
 
-/* Global theme tokens. Every public page uses the same palette. */
-body { --qd-page:#04100c; --qd-surface:#0b2014; --qd-surface-2:#10291b; --qd-line:#1b3a2a; --qd-ink:#eafff2; --qd-muted:#a1b9aa; --qd-accent:#35d887; --qd-accent-ink:#052014; --qd-header:rgba(6,21,14,.94); --qd-footer:#04100a; --qd-shadow:0 14px 36px rgba(0,0,0,.16); background:var(--qd-page); color:var(--qd-ink); }
-body[data-qd-theme="light"] { color-scheme:light; --qd-page:#f4f7f5; --qd-surface:#ffffff; --qd-surface-2:#edf5ef; --qd-line:#dce8df; --qd-ink:#17271d; --qd-muted:#5e7064; --qd-accent:#16834d; --qd-accent-ink:#ffffff; --qd-header:rgba(255,255,255,.94); --qd-footer:#eaf1ec; --qd-shadow:0 12px 34px rgba(29,65,42,.08); background:var(--qd-page)!important; color:var(--qd-ink)!important; }
-body[data-qd-theme="ocean"] { color-scheme:dark; --qd-page:#071321; --qd-surface:#0d2238; --qd-surface-2:#122d49; --qd-line:#244969; --qd-ink:#edf6ff; --qd-muted:#a6bfd5; --qd-accent:#62c3fa; --qd-accent-ink:#061727; --qd-header:rgba(5,17,32,.96); --qd-footer:#06101d; --qd-shadow:0 14px 36px rgba(0,0,0,.24); background:var(--qd-page)!important; color:var(--qd-ink)!important; }
-
+/* Restored default theme tokens. */
+body { --qd-page:#04100c; --qd-surface:#0b2014; --qd-surface-2:#10291b; --qd-line:#1b3a2a; --qd-ink:#eafff2; --qd-muted:#a1b9aa; --qd-accent:#35d887; --qd-accent-ink:#052014; --qd-header:rgba(6,21,14,.94); --qd-footer:#04100a; --qd-shadow:0 14px 36px rgba(0,0,0,.16); background:#04100c; color:#e8fff3; }
 /* Shared shell: header, footer, navigation, cards and controls. */
 body[data-qd-theme] header { background:var(--qd-header)!important; border-color:var(--qd-line)!important; }
 body[data-qd-theme] footer { background:var(--qd-footer)!important; border-color:var(--qd-line)!important; }
