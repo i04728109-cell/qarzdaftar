@@ -1110,6 +1110,6 @@ on conflict (code) do nothing;
 -- ===== supabase/migrations/0006_theme.sql =====
 -- Theme preference is owner-controlled only; role and identity remain protected.
 alter table public.profiles
-  add column if not exists theme text not null default 'dark'
-  check (theme in ('dark','bright'));
+  add column if not exists theme text not null default 'yashil'
+  check (theme in ('yashil','oq'));
 grant update (theme) on public.profiles to authenticated;
