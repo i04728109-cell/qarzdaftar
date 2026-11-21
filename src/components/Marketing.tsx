@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 
 const nav = [
   ["/features", "Imkoniyatlar"],
@@ -14,8 +13,7 @@ const nav = [
 
 export function Brand({ light = false }: { light?: boolean }) {
   return <Link href="/" aria-label="QarzDaftar bosh sahifa" className="inline-flex items-center gap-2.5">
-    <img src="/brand/qarzdaftar-mark.svg" alt="" className="h-10 w-10" />
-    <span className="text-[21px] font-black tracking-tight text-qd-text">Qarz<span className="text-[#32d583]">Daftar</span></span>
+    <img src="/qarzdaftar-logo.svg" alt="QarzDaftar" className="h-12 w-auto max-w-[190px] object-contain" />
   </Link>;
 }
 
@@ -28,7 +26,6 @@ export function MarketingHeader() {
         {nav.map(([href,label]) => <Link key={href} href={href} className={`text-sm font-medium transition hover:text-[#54e69a] ${pathname===href ? "text-qd-green" : "text-qd-text"}`}>{label}</Link>)}
       </nav>
       <div className="flex items-center gap-2">
-        <SiteStyleSwitcher />
         <Link href="/login?next=/app" className="hidden rounded-xl px-4 py-2.5 text-sm font-semibold text-qd-text transition hover:bg-qd-card2 sm:inline-flex">Kirish</Link>
         <Link href="/download" className="rounded-xl bg-[#35d887] px-4 py-2.5 text-sm font-bold text-[#052014] transition hover:bg-[#65e9a5]">Ilovani olish</Link>
       </div>
