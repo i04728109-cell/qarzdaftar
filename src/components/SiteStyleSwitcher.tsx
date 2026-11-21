@@ -24,6 +24,7 @@ export function SiteStyleSwitcher({ compact = false }: { compact?: boolean }) {
     document.body.dataset.qdTheme = next === "bright" ? "light" : "forest";
     document.documentElement.style.colorScheme = next === "bright" ? "light" : "dark";
     document.cookie = `qd-theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+    fetch("/api/profile/theme", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ theme: next }) }).catch(() => {});
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "bright" ? "#ffffff" : "#04100c");
   }
   return <div className="flex items-center gap-1 rounded-xl border border-qd-line bg-qd-card p-1" role="group" aria-label="Mavzu tanlash">
