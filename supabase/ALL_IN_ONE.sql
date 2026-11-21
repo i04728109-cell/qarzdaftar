@@ -1106,3 +1106,10 @@ insert into public.subscription_plans (code, name, duration_months, price_uzs, s
   ('month_1', '1 oy',  1, 60000, 1),
   ('month_2', '2 oy',  2, 85000, 2)
 on conflict (code) do nothing;
+
+-- ===== supabase/migrations/0006_theme.sql =====
+-- Theme preference is owner-controlled only; role and identity remain protected.
+alter table public.profiles
+  add column if not exists theme text not null default 'dark'
+  check (theme in ('dark','bright'));
+grant update (theme) on public.profiles to authenticated;
