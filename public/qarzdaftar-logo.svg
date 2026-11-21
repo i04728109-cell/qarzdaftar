@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="QarzDaftar">
+<g fill="none" stroke="#042141" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="210" cy="53" r="43"/><path d="M210 28v50M196 40h20a9 9 0 0 1 0 18h-16a9 9 0 0 0 0 18h20"/>
+</g>
+<g fill="#087862"><path d="M151 117l42-15v83h-42zM204 98l45-18v105h-45zM258 74l45-19v130h-45z"/></g>
+<g fill="#042141"><path d="M42 171q75-67 168 0 93-53 168 0l-22 25q-76-32-146 0-84-32-146 0z"/><path d="M55 206q74-46 155 0 77-46 155 0l-23 18q-69-26-132 0-77-26-132 0z"/><path d="M62 236q65-32 148 0 70-32 148 0l-23 14q-61-18-125 0-73-18-125 0z"/></g>
+<text x="210" y="267" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="900" letter-spacing="3" fill="#042141">QARZ</text>
+<text x="210" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="7" fill="#087862">DAFTAR</text>
+</svg>
