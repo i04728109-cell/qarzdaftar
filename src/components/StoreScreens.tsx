@@ -24,7 +24,7 @@ export function StoreDashboard(){
  const top=[...customers].sort((a,b)=>Number(b.remaining||0)-Number(a.remaining||0)).filter(c=>Number(c.remaining||0)>0).slice(0,5);
  return <main className="qd-page">
   <Heading title="Bosh sahifa" sub="Bugungi savdo va qarzlar holati"/>
-  <div className="qd-welcome"><div><span className="qd-eyebrow">QARZDAFTAR</span><h2>Hisob-kitoblar<br/>tartibda boʻlsin.</h2><p>Mijozlar qarzini kuzatish endi oson.</p></div><div className="qd-mark">QD</div></div>
+  <div className="qd-welcome"><div><span className="qd-eyebrow">QARZDAFTAR</span><h2>Hisob-kitoblar<br/>tartibda boʻlsin.</h2><p>Mijozlar qarzini kuzatish endi oson.</p></div><img src="/brand/qarzdaftar-mark.svg" alt="QarzDaftar" className="h-16 w-16 shrink-0 rounded-2xl" /></div>
   {err&&<div className="qd-alert">{err}</div>}
   <div className="qd-stats">
    <Panel className="qd-stat primary"><span>Jami qarz qoldigʻi</span><strong>{loading?"…":fmt(remaining)}</strong><small>Hozir undirilishi kerak</small></Panel>
