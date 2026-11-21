@@ -15,26 +15,26 @@ const nav = [
 export function Brand({ light = false }: { light?: boolean }) {
   return <Link href="/" aria-label="QarzDaftar bosh sahifa" className="inline-flex items-center gap-2.5">
     <img src="/brand/qarzdaftar-mark.svg" alt="" className="h-10 w-10" />
-    <span className={`text-[21px] font-black tracking-tight ${light ? "text-white" : "text-[#eafff2]"}`}>Qarz<span className="text-[#32d583]">Daftar</span></span>
+    <span className="text-[21px] font-black tracking-tight text-qd-text">Qarz<span className="text-[#32d583]">Daftar</span></span>
   </Link>;
 }
 
 export function MarketingHeader() {
   const pathname = usePathname();
-  return <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06150e]/90 backdrop-blur-xl">
+  return <header className="sticky top-0 z-40 border-b border-qd-line bg-qd-card/90 backdrop-blur-xl">
     <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3.5 lg:px-8">
       <Brand />
       <nav className="hidden items-center gap-6 xl:flex">
-        {nav.map(([href,label]) => <Link key={href} href={href} className={`text-sm font-medium transition hover:text-[#54e69a] ${pathname===href ? "text-[#54e69a]" : "text-[#a7c0b1]"}`}>{label}</Link>)}
+        {nav.map(([href,label]) => <Link key={href} href={href} className={`text-sm font-medium transition hover:text-[#54e69a] ${pathname===href ? "text-qd-green" : "text-qd-text"}`}>{label}</Link>)}
       </nav>
       <div className="flex items-center gap-2">
         <SiteStyleSwitcher />
-        <Link href="/login?next=/app" className="hidden rounded-xl px-4 py-2.5 text-sm font-semibold text-[#dff8e9] transition hover:bg-white/5 sm:inline-flex">Kirish</Link>
+        <Link href="/login?next=/app" className="hidden rounded-xl px-4 py-2.5 text-sm font-semibold text-qd-text transition hover:bg-qd-card2 sm:inline-flex">Kirish</Link>
         <Link href="/download" className="rounded-xl bg-[#35d887] px-4 py-2.5 text-sm font-bold text-[#052014] transition hover:bg-[#65e9a5]">Ilovani olish</Link>
       </div>
     </div>
     <nav className="mx-auto flex max-w-7xl gap-5 overflow-x-auto px-5 pb-3 xl:hidden">
-      {nav.map(([href,label]) => <Link key={href} href={href} className={`whitespace-nowrap text-xs font-medium ${pathname===href ? "text-[#54e69a]" : "text-[#91ad9d]"}`}>{label}</Link>)}
+      {nav.map(([href,label]) => <Link key={href} href={href} className={`whitespace-nowrap text-xs font-medium ${pathname===href ? "text-qd-green" : "text-qd-mute"}`}>{label}</Link>)}
     </nav>
   </header>;
 }
