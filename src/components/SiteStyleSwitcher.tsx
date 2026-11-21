@@ -1,23 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
-type Theme = "dark" | "bright";
+type Theme = "yashil" | "oq";
 export function SiteStyleSwitcher({ compact = false }: { compact?: boolean }) {
  const [theme, setTheme] = useState<Theme>("dark");
  useEffect(() => {
   const saved = localStorage.getItem("qd-theme");
-  const initial: Theme = saved === "bright" ? "bright" : document.documentElement.dataset.theme === "bright" ? "bright" : "dark";
+  const initial: Theme = saved === "oq" ? "oq" : document.documentElement.dataset.theme === "oq" ? "oq" : "yashil";
   setTheme(initial); document.documentElement.dataset.theme = initial;
-  document.body.dataset.qdTheme = initial === "bright" ? "light" : "forest";
-  document.documentElement.style.colorScheme = initial === "bright" ? "light" : "dark";
+  document.body.dataset.qdTheme = initial === "oq" ? "oq" : "yashil";
+  document.documentElement.style.colorScheme = initial === "oq" ? "light" : "dark";
  }, []);
  function chooseTheme() {
-  const next: Theme = theme === "dark" ? "bright" : "dark";
+  const next: Theme = theme === "yashil" ? "oq" : "yashil";
   setTheme(next); localStorage.setItem("qd-theme", next);
-  document.documentElement.dataset.theme = next; document.body.dataset.qdTheme = next === "bright" ? "light" : "forest";
-  document.documentElement.style.colorScheme = next === "bright" ? "light" : "dark";
+  document.documentElement.dataset.theme = next; document.body.dataset.qdTheme = next === "oq" ? "oq" : "yashil";
+  document.documentElement.style.colorScheme = next === "oq" ? "light" : "dark";
   document.cookie = "qd-theme=" + next + "; Path=/; Max-Age=31536000; SameSite=Lax";
   fetch("/api/profile/theme", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ theme: next }) }).catch(() => {});
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "bright" ? "#ffffff" : "#04100c");
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "oq" ? "#f6f8f7" : "#06130e");
  }
  const bright = theme === "bright";
  return (
