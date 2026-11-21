@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { SiteStyleSwitcher } from "@/components/SiteStyleSwitcher";
 
 export function RegisterStore() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export function RegisterStore() {
     if (r.ok) router.refresh(); else setErr("Doʻkonni yaratib boʻlmadi");
   }
   return (
-    <form onSubmit={submit} className="mx-auto mt-24 flex max-w-sm flex-col gap-3 p-6">
+    <form onSubmit={submit} className="client-theme mx-auto mt-24 flex max-w-sm flex-col gap-3 p-6" data-theme="yashil"><div className="flex justify-end"><SiteStyleSwitcher /></div>
       <h1 className="text-xl font-bold">Doʻkonni roʻyxatdan oʻtkazing</h1>
       <input className="rounded-xl border border-qd-line bg-qd-card px-3 py-3" placeholder="Doʻkon nomi" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />
       {err && <p className="text-sm text-qd-amber">{err}</p>}
